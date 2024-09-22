@@ -1,12 +1,12 @@
 [versions]
-kotlin = "1.8.0"
-ksp = "1.8.0-1.0.8"
-dokka = "1.7.20" # usually the same as kotlin version
-kotlinx-coroutines = "1.6.4"
-junit-jupiter = "5.9.1"
-axiom-release = "1.14.3"
-kotlinter = "3.13.0"
-slf4j = "2.0.6"
+kotlin = "2.0.20"
+ksp = "2.0.20-1.0.24"
+dokka = "1.9.20" # usually the same as kotlin version
+nyx = "0.2.3"
+kotlinx-coroutines = "1.9.0"
+junit-jupiter = "5.11.0"
+axiom-release = "1.18.8"
+slf4j = "2.0.16"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -15,9 +15,9 @@ kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
-axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axiom-release" }
+nyx = { id = "ca.solo-studios.nyx", version.ref = "nyx" }
 
-kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axiom-release" }
 
 [libraries]
 
