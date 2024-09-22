@@ -12,5 +12,5 @@ val logger by getLogger()
 ```
 
 This uses cursed reflection magic (via method handles), so it is slightly slower
-than [getLogger][org.slf4j.kotlin.getLogger], however since it should only be used for a top level constant, it will
-only be executed once.
+than [getLogger][org.slf4j.kotlin.getLogger], however since it should only be
+used for a top level constant, it will only be executed once.
