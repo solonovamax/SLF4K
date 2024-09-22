@@ -3,7 +3,7 @@
  * Copyright (c) 2021-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file build.gradle.kts is part of SLF4K
- * Last modified on 22-09-2024 06:34 p.m.
+ * Last modified on 22-09-2024 06:41 p.m.
  *
  * MIT License
  *
@@ -29,10 +29,10 @@
 @file:Suppress("UnstableApiUsage")
 
 import ca.solostudios.nyx.util.soloStudios
+import java.time.Year
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.dokka.gradle.DokkaTask
-import java.time.Year
 import kotlin.math.max
 
 plugins {
@@ -40,13 +40,13 @@ plugins {
     signing
     `java-library`
     `maven-publish`
-    
+
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.dokka)
-    
+
     alias(libs.plugins.axion.release)
-    
+
     alias(libs.plugins.nyx)
 }
 
@@ -59,14 +59,14 @@ nyx {
         description = """
             A set of SLF4J extensions for Kotlin to make logging more idiomatic.
         """.trimIndent()
-        
+
         organizationName = "Solo Studios"
         organizationUrl = "https://solo-studios.ca/"
-        
+
         repository.fromGithub("solo-studios", "SLF4K")
-        
+
         license.useMIT()
-        
+
         developer {
             id.set("solonovamax")
             name.set("solonovamax")
@@ -74,7 +74,7 @@ nyx {
             url.set("https://github.com/solonovamax")
         }
     }
-    
+
     compile {
         jvmTarget = 8
         sourcesJar = true
@@ -84,7 +84,7 @@ nyx {
         distributeLicense = true
         buildDependsOnJar = true
         reproducibleBuilds = true
-        
+
         kotlin {
             withExplicitApi()
             apiVersion = "1.7"
@@ -92,7 +92,7 @@ nyx {
     }
     publishing {
         withSignedPublishing()
-        
+
         repositories {
             maven {
                 name = "SonatypeStaging"
@@ -131,34 +131,34 @@ repositories {
 dependencies {
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.reflect)
-    
+
     api(libs.slf4j)
-    
+
     compileOnlyApi(libs.kotlinx.coroutines)
     compileOnlyApi(libs.kotlinx.coroutines.slf4j)
-    
+
     kspTest(libs.ksp.service)
     testCompileOnly(libs.ksp.service)
-    
-    
+
+
     testImplementation(libs.slf4j.simple)
-    
+
     testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlinx.coroutines)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.kotlinx.coroutines.debug)
-    
+
     testImplementation(libs.bundles.junit)
 }
 
 tasks {
     withType<Test>().configureEach {
         useJUnitPlatform()
-        
+
         failFast = false
         maxParallelForks = max(Runtime.getRuntime().availableProcessors() - 1, 1)
     }
-    
+
     val processDokkaIncludes by registering(ProcessResources::class) {
         group = JavaBasePlugin.DOCUMENTATION_GROUP
         description = "Processes the included dokka files"
@@ -176,30 +176,30 @@ tasks {
         }
         destinationDir = layout.buildDirectory.dir("dokka-include").map { it.asFile }.get()
     }
-    
+
     withType<DokkaTask>().configureEach {
         group = JavaBasePlugin.DOCUMENTATION_GROUP
-        
+
         dependsOn(processDokkaIncludes)
-        
+
         pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
             footerMessage = "© ${Year.now()} Copyright solo-studios"
             separateInheritedMembers = true
         }
-        
+
         dokkaSourceSets.configureEach {
             includes.from(processDokkaIncludes.map { it.destinationDir.walk().filter { file -> file.isFile }.toList() })
-            
+
             jdkVersion.set(8)
             reportUndocumented.set(true)
-            
+
             // Documentation link
             sourceLink {
                 localDirectory = projectDir.resolve("src")
                 remoteUrl = nyx.info.repository.projectUrl.map { uri("$it/tree/master/src").toURL() }
                 remoteLineSuffix = "#L"
             }
-            
+
             externalDocumentationLink("https://www.slf4j.org/api/", "https://www.slf4j.org/api/element-list")
         }
     }

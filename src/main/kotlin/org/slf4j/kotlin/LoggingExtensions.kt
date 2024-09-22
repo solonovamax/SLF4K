@@ -1,9 +1,9 @@
 /*
  * SLF4K - A set of SLF4J extensions for Kotlin to make logging more idiomatic.
- * Copyright (c) 2021-2022 solonovamax <solonovamax@12oclockpoint.com>
+ * Copyright (c) 2021-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file LoggingExtensions.kt is part of SLF4K
- * Last modified on 20-11-2022 01:55 p.m.
+ * Last modified on 22-09-2024 06:40 p.m.
  *
  * MIT License
  *
@@ -32,7 +32,8 @@ import org.slf4j.Marker
 /**
  * Log a message at the TRACE level.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.trace(crossinline message: () -> String) {
@@ -55,11 +56,12 @@ public inline fun KLogger.trace(crossinline message: () -> Any?) {
 }
 
 /**
- * Log an exception (throwable) at the TRACE level with an
- * accompanying message.
+ * Log an exception (throwable) at the TRACE level with an accompanying
+ * message.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.trace(throwable: Throwable?, crossinline message: () -> String) {
@@ -68,8 +70,8 @@ public inline fun KLogger.trace(throwable: Throwable?, crossinline message: () -
 }
 
 /**
- * Log an exception (throwable) at the TRACE level with an
- * accompanying message.
+ * Log an exception (throwable) at the TRACE level with an accompanying
+ * message.
  *
  * [toString] is invoked on the provided object.
  *
@@ -86,8 +88,9 @@ public inline fun KLogger.trace(throwable: Throwable?, crossinline message: () -
 /**
  * Log a message with the specific Marker at the TRACE level.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.trace(marker: Marker?, crossinline message: () -> String) {
@@ -100,7 +103,7 @@ public inline fun KLogger.trace(marker: Marker?, crossinline message: () -> Stri
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker  the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param message a lazy evaluated block providing the object to be logged
  */
 @JvmSynthetic
@@ -111,12 +114,13 @@ public inline fun KLogger.trace(marker: Marker?, crossinline message: () -> Any?
 }
 
 /**
- * This method is similar to [trace] method except that the
- * marker data is also taken into consideration.
+ * This method is similar to [trace] method except that the marker data is
+ * also taken into consideration.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.trace(marker: Marker?, throwable: Throwable?, crossinline message: () -> String) {
@@ -125,12 +129,12 @@ public inline fun KLogger.trace(marker: Marker?, throwable: Throwable?, crossinl
 }
 
 /**
- * This method is similar to [trace] method except that the
- * marker data is also taken into consideration.
+ * This method is similar to [trace] method except that the marker data is
+ * also taken into consideration.
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
  * @param message a lazy evaluated block providing the object to be logged
  */
@@ -144,7 +148,8 @@ public inline fun KLogger.trace(marker: Marker?, throwable: Throwable?, crossinl
 /**
  * Log a message at the DEBUG level.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.debug(crossinline message: () -> String) {
@@ -167,11 +172,12 @@ public inline fun KLogger.debug(crossinline message: () -> Any?) {
 }
 
 /**
- * Log an exception (throwable) at the DEBUG level with an
- * accompanying message.
+ * Log an exception (throwable) at the DEBUG level with an accompanying
+ * message.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.debug(throwable: Throwable?, crossinline message: () -> String) {
@@ -180,13 +186,14 @@ public inline fun KLogger.debug(throwable: Throwable?, crossinline message: () -
 }
 
 /**
- * Log an exception (throwable) at the DEBUG level with an
- * accompanying message.
+ * Log an exception (throwable) at the DEBUG level with an accompanying
+ * message.
  *
  * [toString] is invoked on the provided object.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("debugObject")
@@ -198,8 +205,9 @@ public inline fun KLogger.debug(throwable: Throwable?, crossinline message: () -
 /**
  * Log a message with the specific Marker at the DEBUG level.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.debug(marker: Marker?, crossinline message: () -> String) {
@@ -212,8 +220,9 @@ public inline fun KLogger.debug(marker: Marker?, crossinline message: () -> Stri
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("debugObject")
@@ -223,12 +232,13 @@ public inline fun KLogger.debug(marker: Marker?, crossinline message: () -> Any?
 }
 
 /**
- * This method is similar to [debug] method except that the
- * marker data is also taken into consideration.
+ * This method is similar to [debug] method except that the marker data is
+ * also taken into consideration.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.debug(marker: Marker?, throwable: Throwable?, crossinline message: () -> String) {
@@ -237,14 +247,15 @@ public inline fun KLogger.debug(marker: Marker?, throwable: Throwable?, crossinl
 }
 
 /**
- * This method is similar to [debug] method except that the
- * marker data is also taken into consideration.
+ * This method is similar to [debug] method except that the marker data is
+ * also taken into consideration.
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("debugObject")
@@ -256,7 +267,8 @@ public inline fun KLogger.debug(marker: Marker?, throwable: Throwable?, crossinl
 /**
  * Log a message at the INFO level.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.info(crossinline message: () -> String) {
@@ -269,7 +281,8 @@ public inline fun KLogger.info(crossinline message: () -> String) {
  *
  * [toString] is invoked on the provided object.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("infoObject")
@@ -279,11 +292,12 @@ public inline fun KLogger.info(crossinline message: () -> Any?) {
 }
 
 /**
- * Log an exception (throwable) at the INFO level with an
- * accompanying message.
+ * Log an exception (throwable) at the INFO level with an accompanying
+ * message.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.info(throwable: Throwable?, crossinline message: () -> String) {
@@ -292,13 +306,14 @@ public inline fun KLogger.info(throwable: Throwable?, crossinline message: () ->
 }
 
 /**
- * Log an exception (throwable) at the INFO level with an
- * accompanying message.
+ * Log an exception (throwable) at the INFO level with an accompanying
+ * message.
  *
  * [toString] is invoked on the provided object.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("infoObject")
@@ -310,8 +325,9 @@ public inline fun KLogger.info(throwable: Throwable?, crossinline message: () ->
 /**
  * Log a message with the specific Marker at the INFO level.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.info(marker: Marker?, crossinline message: () -> String) {
@@ -324,8 +340,9 @@ public inline fun KLogger.info(marker: Marker?, crossinline message: () -> Strin
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("infoObject")
@@ -335,12 +352,13 @@ public inline fun KLogger.info(marker: Marker?, crossinline message: () -> Any?)
 }
 
 /**
- * This method is similar to [info] method
- * except that the marker data is also taken into consideration.
+ * This method is similar to [info] method except that the marker data is
+ * also taken into consideration.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.info(marker: Marker?, throwable: Throwable?, crossinline message: () -> String) {
@@ -349,14 +367,15 @@ public inline fun KLogger.info(marker: Marker?, throwable: Throwable?, crossinli
 }
 
 /**
- * This method is similar to [info] method
- * except that the marker data is also taken into consideration.
+ * This method is similar to [info] method except that the marker data is
+ * also taken into consideration.
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("infoObject")
@@ -368,7 +387,8 @@ public inline fun KLogger.info(marker: Marker?, throwable: Throwable?, crossinli
 /**
  * Log a message at the WARN level.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.warn(crossinline message: () -> String) {
@@ -381,7 +401,8 @@ public inline fun KLogger.warn(crossinline message: () -> String) {
  *
  * [toString] is invoked on the provided object.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("warnObject")
@@ -391,11 +412,12 @@ public inline fun KLogger.warn(crossinline message: () -> Any?) {
 }
 
 /**
- * Log an exception (throwable) at the WARN level with an
- * accompanying message.
+ * Log an exception (throwable) at the WARN level with an accompanying
+ * message.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.warn(throwable: Throwable?, crossinline message: () -> String) {
@@ -404,13 +426,14 @@ public inline fun KLogger.warn(throwable: Throwable?, crossinline message: () ->
 }
 
 /**
- * Log an exception (throwable) at the WARN level with an
- * accompanying message.
+ * Log an exception (throwable) at the WARN level with an accompanying
+ * message.
  *
  * [toString] is invoked on the provided object.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("warnObject")
@@ -422,8 +445,9 @@ public inline fun KLogger.warn(throwable: Throwable?, crossinline message: () ->
 /**
  * Log a message with the specific Marker at the WARN level.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.warn(marker: Marker?, crossinline message: () -> String) {
@@ -436,8 +460,9 @@ public inline fun KLogger.warn(marker: Marker?, crossinline message: () -> Strin
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("warnObject")
@@ -447,12 +472,13 @@ public inline fun KLogger.warn(marker: Marker?, crossinline message: () -> Any?)
 }
 
 /**
- * This method is similar to [warn] method
- * except that the marker data is also taken into consideration.
+ * This method is similar to [warn] method except that the marker data is
+ * also taken into consideration.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.warn(marker: Marker?, throwable: Throwable?, crossinline message: () -> String) {
@@ -461,14 +487,15 @@ public inline fun KLogger.warn(marker: Marker?, throwable: Throwable?, crossinli
 }
 
 /**
- * This method is similar to [warn] method
- * except that the marker data is also taken into consideration.
+ * This method is similar to [warn] method except that the marker data is
+ * also taken into consideration.
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("warnObject")
@@ -480,7 +507,8 @@ public inline fun KLogger.warn(marker: Marker?, throwable: Throwable?, crossinli
 /**
  * Log a message at the ERROR level.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.error(crossinline message: () -> String) {
@@ -493,7 +521,8 @@ public inline fun KLogger.error(crossinline message: () -> String) {
  *
  * [toString] is invoked on the provided object.
  *
- * @param message a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("errorObject")
@@ -503,11 +532,12 @@ public inline fun KLogger.error(crossinline message: () -> Any?) {
 }
 
 /**
- * Log an exception (throwable) at the ERROR level with an
- * accompanying message.
+ * Log an exception (throwable) at the ERROR level with an accompanying
+ * message.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.error(throwable: Throwable?, crossinline message: () -> String) {
@@ -516,13 +546,14 @@ public inline fun KLogger.error(throwable: Throwable?, crossinline message: () -
 }
 
 /**
- * Log an exception (throwable) at the ERROR level with an
- * accompanying message.
+ * Log an exception (throwable) at the ERROR level with an accompanying
+ * message.
  *
  * [toString] is invoked on the provided object.
  *
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the format string to be logged
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("errorObject")
@@ -534,8 +565,9 @@ public inline fun KLogger.error(throwable: Throwable?, crossinline message: () -
 /**
  * Log a message with the specific Marker at the ERROR level.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.error(marker: Marker?, crossinline message: () -> String) {
@@ -548,8 +580,9 @@ public inline fun KLogger.error(marker: Marker?, crossinline message: () -> Stri
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker  the marker data specific to this log statement
- * @param message a lazy evaluated block providing the format string to be logged
+ * @param marker the marker data specific to this log statement
+ * @param message a lazy evaluated block providing the format string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("errorObject")
@@ -559,13 +592,13 @@ public inline fun KLogger.error(marker: Marker?, crossinline message: () -> Any?
 }
 
 /**
- * This method is similar to [error]
- * method except that the marker data is also taken into
- * consideration.
+ * This method is similar to [error] method except that the marker data is
+ * also taken into consideration.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 public inline fun KLogger.error(marker: Marker?, throwable: Throwable?, crossinline message: () -> String) {
@@ -574,15 +607,15 @@ public inline fun KLogger.error(marker: Marker?, throwable: Throwable?, crossinl
 }
 
 /**
- * This method is similar to [error]
- * method except that the marker data is also taken into
- * consideration.
+ * This method is similar to [error] method except that the marker data is
+ * also taken into consideration.
  *
  * [toString] is invoked on the provided object.
  *
- * @param marker    the marker data specific to this log statement
+ * @param marker the marker data specific to this log statement
  * @param throwable the exception (throwable) to log
- * @param message   a lazy evaluated block providing the message string to be logged
+ * @param message a lazy evaluated block providing the message string to be
+ *         logged
  */
 @JvmSynthetic
 @JvmName("errorObject")

@@ -1,9 +1,9 @@
 /*
  * SLF4K - A set of SLF4J extensions for Kotlin to make logging more idiomatic.
- * Copyright (c) 2022-2022 solonovamax <solonovamax@12oclockpoint.com>
+ * Copyright (c) 2022-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file SimpleServiceMDCProvider.kt is part of SLF4K
- * Last modified on 19-11-2022 02:16 p.m.
+ * Last modified on 22-09-2024 06:40 p.m.
  *
  * MIT License
  *
@@ -42,31 +42,31 @@ class SimpleServiceMDCProvider : SLF4JServiceProvider {
     private lateinit var loggerFactory: ILoggerFactory
     private lateinit var markerFactory: IMarkerFactory
     private lateinit var mdcAdapter: MDCAdapter
-    
+
     override fun getLoggerFactory(): ILoggerFactory {
         return loggerFactory
     }
-    
+
     override fun getMarkerFactory(): IMarkerFactory {
         return markerFactory
     }
-    
+
     override fun getMDCAdapter(): MDCAdapter {
         return mdcAdapter
     }
-    
+
     override fun getRequestedApiVersion(): String = REQUESTED_API_VERSION
-    
+
     override fun initialize() {
         loggerFactory = SimpleLoggerFactory()
         markerFactory = BasicMarkerFactory()
         mdcAdapter = BasicMDCAdapter()
     }
-    
+
     companion object {
         /**
-         * Declare the version of the SLF4J API this implementation is compiled against.
-         * The value of this field is modified with each major release.
+         * Declare the version of the SLF4J API this implementation is compiled
+         * against. The value of this field is modified with each major release.
          */
         // to avoid constant folding by the compiler, this field must *not* be final
         var REQUESTED_API_VERSION = "2.0.99" // !final

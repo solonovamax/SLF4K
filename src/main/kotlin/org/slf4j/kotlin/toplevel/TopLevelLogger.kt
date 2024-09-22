@@ -1,9 +1,9 @@
 /*
  * SLF4K - A set of SLF4J extensions for Kotlin to make logging more idiomatic.
- * Copyright (c) 2021-2022 solonovamax <solonovamax@12oclockpoint.com>
+ * Copyright (c) 2021-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file TopLevelLogger.kt is part of SLF4K
- * Last modified on 20-11-2022 01:54 p.m.
+ * Last modified on 22-09-2024 06:40 p.m.
  *
  * MIT License
  *
@@ -29,17 +29,17 @@
 
 package org.slf4j.kotlin.toplevel
 
+import java.lang.invoke.MethodHandles
 import org.slf4j.kotlin.KLogger
 import org.slf4j.kotlin.KLoggerCache
 import org.slf4j.kotlin.KLoggerDelegate
 import org.slf4j.kotlin.getLogger
-import java.lang.invoke.MethodHandles
-
 
 /**
  * Constructs a new top-level logger using [MethodHandles].
  *
- * Any classes attempting to get a logger should, by default, using the faster [getLogger].
+ * Any classes attempting to get a logger should, by default, using the
+ * faster [getLogger].
  *
  * @return A new [KLogger] for the calling class.
  */

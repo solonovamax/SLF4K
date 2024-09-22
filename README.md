@@ -12,7 +12,8 @@
 
 - Use kotlin features to cleanly get the appropriate logger for your class
 - Clean up kotlin class names to make logging easy to understand
-- Typed logger delegates: a logger instantiated using a class reference is only valid in that class
+- Typed logger delegates: a logger instantiated using a class reference is only
+  valid in that class
 - Lazy logger instantiation & logger cache
 
 ## Including
@@ -43,9 +44,10 @@ implementation("ca.solo-studios:slf4k:[slf4j version]")
 
 ## SLF4J 2.0.0
 
-The current version of SLF4K should be compatible with all versions that are greater than 2.0.0.
-However, it should still work with versions lower than 2.0.0, so long as you don't use
-the [Fluent Logging](#fluent-logging) extensions.
+The current version of SLF4K should be compatible with all versions that are
+greater than 2.0.0.
+However, it should still work with versions lower than 2.0.0, so long as you
+don't use the [Fluent Logging](#fluent-logging) extensions.
 
 ## Examples
 
@@ -81,7 +83,8 @@ val logger by getLogger("name of logger here")
 
 ### Logging
 
-SLF4K uses lazy log message evaluation to avoid expensive logging messages when they're not needed.
+SLF4K uses lazy log message evaluation to avoid expensive logging messages when
+they're not needed.
 
 When you write the following:
 
@@ -96,9 +99,11 @@ if (logger.info)
     logger.info("expensive message: $someVariable")
 ```
 
-This way, the expensive message is only evaluated if the info log level is enabled.
+This way, the expensive message is only evaluated if the info log level is
+enabled.
 
-Extensions have also been provided for every combination of level and argument. So, you can log errors as needed:
+Extensions have also been provided for every combination of level and argument.
+So, you can log errors as needed:
 
 ```kotlin
 logger.warn(exception) { "message" }
@@ -116,9 +121,9 @@ after which, they can be used normally.
 
 ### Fluent Logging
 
-The [fluent logging api](https://www.slf4j.org/manual.html#fluent) introduced in version 2.0.0 is also supported by
-SLF4K,
-here are some examples of how it can be used:
+The [fluent logging api](https://www.slf4j.org/manual.html#fluent) introduced in
+version 2.0.0 is also supported by SLF4K, here are some examples of how it
+can be used:
 
 ```kotlin
 logger.atInfo {
@@ -179,8 +184,9 @@ try {
 
 ## MDC with Coroutines
 
-To pass MDC context between [kotlinx coroutines](https://github.com/Kotlin/kotlinx.coroutines),
-use `kotlinx-coroutines-slf4j`:
+To pass MDC context
+between [kotlinx coroutines](https://github.com/Kotlin/kotlinx.coroutines), use
+`kotlinx-coroutines-slf4j`:
 
 ### Including
 

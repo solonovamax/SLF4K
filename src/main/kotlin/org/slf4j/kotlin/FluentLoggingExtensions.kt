@@ -1,9 +1,9 @@
 /*
  * SLF4K - A set of SLF4J extensions for Kotlin to make logging more idiomatic.
- * Copyright (c) 2022-2022 solonovamax <solonovamax@12oclockpoint.com>
+ * Copyright (c) 2022-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file FluentLoggingExtensions.kt is part of SLF4K
- * Last modified on 20-11-2022 01:55 p.m.
+ * Last modified on 22-09-2024 06:40 p.m.
  *
  * MIT License
  *
@@ -40,9 +40,9 @@ public inline fun KLogger.atTrace(crossinline builder: LoggingEventBuilder.() ->
     if (isTraceEnabled) {
         val slf4jEventBuilder = atTrace()
         LoggingEventBuilder()
-                .apply(builder)
-                .applyTo(slf4jEventBuilder)
-        
+            .apply(builder)
+            .applyTo(slf4jEventBuilder)
+
         slf4jEventBuilder.log()
     }
 }
@@ -57,9 +57,9 @@ public inline fun KLogger.atDebug(crossinline builder: LoggingEventBuilder.() ->
     if (isDebugEnabled) {
         val slf4jEventBuilder = atDebug()
         LoggingEventBuilder()
-                .apply(builder)
-                .applyTo(slf4jEventBuilder)
-        
+            .apply(builder)
+            .applyTo(slf4jEventBuilder)
+
         slf4jEventBuilder.log()
     }
 }
@@ -74,9 +74,9 @@ public inline fun KLogger.atInfo(crossinline builder: LoggingEventBuilder.() -> 
     if (isInfoEnabled) {
         val slf4jEventBuilder = atInfo()
         LoggingEventBuilder()
-                .apply(builder)
-                .applyTo(slf4jEventBuilder)
-        
+            .apply(builder)
+            .applyTo(slf4jEventBuilder)
+
         slf4jEventBuilder.log()
     }
 }
@@ -91,9 +91,9 @@ public inline fun KLogger.atWarn(crossinline builder: LoggingEventBuilder.() -> 
     if (isWarnEnabled) {
         val slf4jEventBuilder = atWarn()
         LoggingEventBuilder()
-                .apply(builder)
-                .applyTo(slf4jEventBuilder)
-        
+            .apply(builder)
+            .applyTo(slf4jEventBuilder)
+
         slf4jEventBuilder.log()
     }
 }
@@ -108,9 +108,9 @@ public inline fun KLogger.atError(crossinline builder: LoggingEventBuilder.() ->
     if (isErrorEnabled) {
         val slf4jEventBuilder = atError()
         LoggingEventBuilder()
-                .apply(builder)
-                .applyTo(slf4jEventBuilder)
-        
+            .apply(builder)
+            .applyTo(slf4jEventBuilder)
+
         slf4jEventBuilder.log()
     }
 }
@@ -120,19 +120,19 @@ internal fun LoggingEventBuilder.applyTo(slf4jEventBuilder: SLF4JLoggingEventBui
     cause?.also {
         slf4jEventBuilder.setCause(it)
     }
-    
+
     markers?.forEach { marker ->
         slf4jEventBuilder.addMarker(marker)
     }
-    
+
     arguments?.forEach {
         slf4jEventBuilder.addArgument(it)
     }
-    
+
     keyValues?.forEach { (key, value) ->
         slf4jEventBuilder.addKeyValue(key, value)
     }
-    
+
     message?.also {
         slf4jEventBuilder.setMessage(it)
     }
@@ -150,28 +150,29 @@ public class LoggingEventBuilder {
      * @see SLF4JLoggingEventBuilder.setCause
      */
     public var cause: Throwable? = null
-    
+
     /**
      * A list of [marker][KMarker]s to be added to the event being built.
      *
      * @see SLF4JLoggingEventBuilder.addMarker
      */
     public var markers: List<KMarker>? = null
-    
+
     /**
      * A list of arguments to be added to the event being built.
      *
      * @see SLF4JLoggingEventBuilder.addArgument
      */
     public var arguments: List<*>? = null
-    
+
     /**
-     * A list of [KeyValuePair][org.slf4j.event.KeyValuePair]s to be added to the event being built.
+     * A list of [KeyValuePair][org.slf4j.event.KeyValuePair]s to be added to
+     * the event being built.
      *
      * @see SLF4JLoggingEventBuilder.addKeyValue
      */
     public var keyValues: List<Pair<String, *>>? = null
-    
+
     /**
      * The message for the logging event being build
      *
