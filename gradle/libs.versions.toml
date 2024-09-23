@@ -5,7 +5,7 @@ dokka = "1.9.20" # usually the same as kotlin version
 nyx = "0.2.3"
 kotlinx-coroutines = "1.9.0"
 junit-jupiter = "5.11.0"
-axiom-release = "1.18.8"
+axion-release = "1.18.8"
 slf4j = "2.0.16"
 
 [plugins]
@@ -17,7 +17,7 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
 nyx = { id = "ca.solo-studios.nyx", version.ref = "nyx" }
 
-axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axiom-release" }
+axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axion-release" }
 
 [libraries]
 
