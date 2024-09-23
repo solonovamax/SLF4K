@@ -3,7 +3,7 @@
  * Copyright (c) 2021-2024 solonovamax <solonovamax@12oclockpoint.com>
  *
  * The file build.gradle.kts is part of SLF4K
- * Last modified on 22-09-2024 06:41 p.m.
+ * Last modified on 22-09-2024 09:55 p.m.
  *
  * MIT License
  *
@@ -28,7 +28,9 @@
 
 @file:Suppress("UnstableApiUsage")
 
+import ca.solostudios.nyx.util.reposiliteMaven
 import ca.solostudios.nyx.util.soloStudios
+import java.io.Serializable
 import java.time.Year
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
@@ -103,21 +105,15 @@ nyx {
                 }
                 credentials(PasswordCredentials::class)
             }
-            maven {
+            reposiliteMaven {
                 name = "SoloStudiosReleases"
                 url = uri("https://maven.solo-studios.ca/releases/")
                 credentials(PasswordCredentials::class)
-                authentication { // publishing doesn't work without this for some reason
-                    create<BasicAuthentication>("basic")
-                }
             }
-            maven {
+            reposiliteMaven {
                 name = "SoloStudiosSnapshots"
                 url = uri("https://maven.solo-studios.ca/snapshots/")
                 credentials(PasswordCredentials::class)
-                authentication { // publishing doesn't work without this for some reason
-                    create<BasicAuthentication>("basic")
-                }
             }
         }
     }
@@ -162,8 +158,11 @@ tasks {
     val processDokkaIncludes by registering(ProcessResources::class) {
         group = JavaBasePlugin.DOCUMENTATION_GROUP
         description = "Processes the included dokka files"
+
+        val projectInfo = ProjectInfo(nyx.info.group, nyx.info.module.get(), nyx.info.version)
+        inputs.property("projectInfo", projectInfo)
+
         from(projectDir.resolve("dokka/includes")) {
-            val projectInfo = ProjectInfo(nyx.info.group, nyx.info.module.get(), nyx.info.version)
             filesMatching("Module.md") {
                 expand(
                     "project" to projectInfo,
@@ -199,13 +198,11 @@ tasks {
                 remoteUrl = nyx.info.repository.projectUrl.map { uri("$it/tree/master/src").toURL() }
                 remoteLineSuffix = "#L"
             }
+            val slf4jDocsUrl = "https://www.slf4j.org/api/"
 
-            externalDocumentationLink("https://www.slf4j.org/api/", "https://www.slf4j.org/api/element-list")
+            externalDocumentationLink(slf4jDocsUrl, "$slf4jDocsUrl/element-list")
         }
     }
 }
 
-val Project.isSnapshot: Boolean
-    get() = version.toString().endsWith("-SNAPSHOT")
-
-data class ProjectInfo(val group: String, val module: String, val version: String)
+data class ProjectInfo(val group: String, val module: String, val version: String) : Serializable
